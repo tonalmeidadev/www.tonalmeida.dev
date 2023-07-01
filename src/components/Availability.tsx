@@ -14,17 +14,16 @@ const led = cva("flex h-[10px] w-[10px] rounded-full", {
   },
 });
 
-const SAO_PAULO_TIME_API_URL =
-  "http://worldtimeapi.org/api/timezone/America/Sao_Paulo";
-
 async function fetchSaoPauloTime() {
-  const response = await axios.get(SAO_PAULO_TIME_API_URL);
+  const response = await axios.get(
+    "http://worldtimeapi.org/api/timezone/America/Sao_Paulo"
+  );
   const datetime = new Date(response.data.datetime);
   const formattedTime = format(datetime, "HH");
   return formattedTime;
 }
 
-export function Notification() {
+export function Availability() {
   const [isAvailable, setIsAvailable] = useState(false);
 
   useEffect(() => {

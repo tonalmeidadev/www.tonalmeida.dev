@@ -1,30 +1,39 @@
 "use client";
 
-import { X } from "@phosphor-icons/react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
-import { Notification } from "./Notification";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
-interface BannerProps {
-  onRemove: () => void;
-}
+import { Availability } from "./Availability";
 
-export function Banner({ onRemove }: BannerProps) {
+export function Banner() {
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
+
+  function handleRemoveBanner() {
+    setIsBannerVisible(false);
+  }
+
   return (
-    <motion.div
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.5 }}
-      className="flex h-8 items-center justify-center border-b border-neutral-800 p-2"
-    >
-      <Notification />
+    <AnimatePresence>
+      {isBannerVisible && (
+        <motion.div
+          animate={{ opacity: 1, y: 0 }}
+          initial={{ height: "2rem" }}
+          exit={{ opacity: 0, y: -50, height: 0 }}
+          transition={{ duration: 0.25 }}
+          className="flex items-center justify-center border-b border-neutral-800"
+        >
+          <Availability />
 
-      <button
-        className="absolute right-4 flex h-4 w-4 items-center justify-center rounded-full"
-        onClick={onRemove}
-      >
-        <X size={14} />
-      </button>
-    </motion.div>
+          <button
+            className="absolute right-4 flex h-4 w-4 items-center justify-center rounded-full"
+            onClick={handleRemoveBanner}
+          >
+            <X size={16} />
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
