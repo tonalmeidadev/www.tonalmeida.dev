@@ -1,15 +1,18 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { useEffect, useState } from 'react'
-import { messages } from '@/utils/messages'
+import { messages } from '@/lib/utils/messages'
 import { motion } from 'framer-motion'
 
 import profile from '@/assets/photo.jpg'
+import { useKBar } from 'kbar'
+import { useRouter } from 'next/navigation'
 
 export function StatusBar() {
+  const router = useRouter()
+  const { query } = useKBar()
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -20,9 +23,15 @@ export function StatusBar() {
     return () => clearInterval(interval)
   }, [])
 
+  function messageAction(param: string | undefined) {
+    if (param === undefined) {
+      query.toggle()
+    } else router.push(param)
+  }
+
   return (
-    <Link
-      href={messages[currentIndex].path}
+    <button
+      onClick={() => messageAction(messages[currentIndex].path)}
       className="flex h-9 w-[310px] items-center gap-[10px] rounded-full border border-dashed border-neutral-600 bg-neutral-950 px-[10px]"
     >
       <Image
@@ -42,6 +51,6 @@ export function StatusBar() {
       >
         {messages[currentIndex].text}
       </motion.span>
-    </Link>
+    </button>
   )
 }

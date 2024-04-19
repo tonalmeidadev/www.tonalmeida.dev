@@ -1,10 +1,10 @@
 export const messages = [
-  { id: 0, text: 'press command/windows + k', path: '/' },
-  { id: 1, text: 'available for new projects', path: '/' },
+  { id: 0, path: undefined, text: 'press command/windows + k' },
+  { id: 1, path: '/', text: 'available for new projects' },
   {
     id: 2,
-    text: 'available for freelancing, get in touch',
     path: '/contact',
+    text: 'available for freelancing, get in touch',
   },
   { id: 3, path: '/contact', text: 'get in touch now' },
   { id: 4, path: '/', text: 'support ukraine!' },

@@ -4,6 +4,8 @@ import './globals.css'
 import { Roboto_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 
+import { CommandRoot as CommandProvider } from '@/components/command/CommandRoot'
+
 const roboto_mono = Roboto_Mono({
   variable: '--font-monospace',
   subsets: ['latin'],
@@ -26,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto_mono.variable} ${monument.variable}`}>
-      <body>{children}</body>
+      <body>
+        <CommandProvider>{children}</CommandProvider>
+      </body>
     </html>
   )
 }

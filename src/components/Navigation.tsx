@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import { navigation } from '@/utils/navigation'
+import { navigation } from '@/lib/utils/navigation'
 import { Play } from '@phosphor-icons/react/dist/ssr'
 
 export function Navigation() {
