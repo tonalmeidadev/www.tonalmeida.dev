@@ -12,7 +12,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        serif: ['var(--font-serif)', 'serif'],
+        custom: ['var(--font-monument)', 'sans-serif'],
       },
     },
   },

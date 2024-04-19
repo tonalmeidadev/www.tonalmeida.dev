@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import './globals.css'
 
-import { Roboto_Mono, Roboto_Serif } from 'next/font/google'
+import { Roboto_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 
 const roboto_mono = Roboto_Mono({
   variable: '--font-monospace',
@@ -9,14 +10,13 @@ const roboto_mono = Roboto_Mono({
   display: 'swap',
 })
 
-const roboto_serif = Roboto_Serif({
-  variable: '--font-serif',
-  subsets: ['latin'],
-  display: 'swap',
+const monument = localFont({
+  variable: '--font-monument',
+  src: '../../public/fonts/monument-extended.otf',
 })
 
 export const metadata: Metadata = {
-  title: 'Ton Almeieda // Front-end Developer',
+  title: 'Ton Almeida // Front-end Developer',
 }
 
 export default function RootLayout({
@@ -25,10 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${roboto_mono.variable} ${roboto_serif.variable}`}
-    >
+    <html lang="en" className={`${roboto_mono.variable} ${monument.variable}`}>
       <body>{children}</body>
     </html>
   )

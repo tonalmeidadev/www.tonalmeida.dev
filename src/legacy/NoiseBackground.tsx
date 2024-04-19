@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-export function Noise() {
+export function NoiseBackground() {
   const element = useRef<HTMLCanvasElement>(null)
   const frameRate = 30
   const frameInterval = 1000 / frameRate
@@ -33,7 +33,7 @@ export function Noise() {
         const len = buffer32.length
 
         for (let i = 0; i < len; i++) {
-          if (Math.random() < 0.5) buffer32[i] = 0xffffffff
+          if (Math.random() < 0.2) buffer32[i] = 0xffffffff
         }
 
         ctx.putImageData(iData, 0, 0)
@@ -58,7 +58,7 @@ export function Noise() {
   return (
     <canvas
       ref={element}
-      className="pointer-events-none absolute -z-10 select-none opacity-[0.07]"
+      className="pointer-events-none fixed -z-10 select-none opacity-5"
     />
   )
 }
