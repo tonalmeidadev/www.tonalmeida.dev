@@ -18,8 +18,11 @@ export function CommandRoot({ children }: CommandRootProps) {
   return (
     <CommandProvider actions={CommandActions()}>
       <CommandPortal>
-        <CommandPositioner className="bg-neutral-950/75 backdrop-blur-md">
-          <CommandAnimator className="min-h-[54px] w-[414px] gap-4 overflow-hidden rounded-lg border border-dotted border-neutral-600 bg-transparent">
+        <CommandPositioner
+          className="bg-neutral-950/75 backdrop-blur-md"
+          style={{ paddingTop: 16 }}
+        >
+          <CommandAnimator className="m-auto min-h-[54px] w-[414px] gap-4 overflow-hidden rounded-lg border border-dotted border-neutral-600 bg-transparent">
             <div className="flex items-center gap-2 px-6 py-4">
               <StarFour size={20} weight={'light'} />
               <CommandSearch

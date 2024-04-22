@@ -27,7 +27,7 @@ export function Navigation() {
         {navigation.map((item, index) => (
           <li
             key={index}
-            className="flex font-custom text-[10px] uppercase leading-none tracking-widest"
+            className="flex w-fit font-custom text-[10px] uppercase leading-none tracking-widest"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >

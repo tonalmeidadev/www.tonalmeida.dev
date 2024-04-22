@@ -4,5 +4,8 @@
 
 body {
   @apply bg-neutral-950 text-neutral-50 font-mono;
-  -webkit-font-smoothing: antialiased;
+}
+
+#kbar-listbox > div:last-child > div {
+  @apply h-12 pb-2 overflow-hidden;
 }

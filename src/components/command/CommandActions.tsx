@@ -17,7 +17,7 @@ export function CommandActions() {
     {
       id: 'copy',
       name: 'Copy link',
-      shortcut: ['l'],
+      shortcut: ['c', 'l'],
       keywords: 'copy-url',
       section: 'Quick shortcuts',
       perform: () => {
@@ -29,7 +29,7 @@ export function CommandActions() {
     {
       id: 'send-email',
       name: 'Send e-mail',
-      shortcut: ['e'],
+      shortcut: ['s', 'e'],
       keywords: 'send-email',
       section: 'Quick shortcuts',
       perform: () => window.open('mailto:oi@tonalmeida.dev', '_self'),
@@ -39,7 +39,7 @@ export function CommandActions() {
     {
       id: 'view-source',
       name: 'View source',
-      shortcut: ['s'],
+      shortcut: ['v', 's'],
       keywords: 'view-source',
       section: 'Quick shortcuts',
       perform: () =>
@@ -83,7 +83,7 @@ export function CommandActions() {
     {
       id: 'get-in-touch',
       name: 'Get in touch',
-      shortcut: ['g'],
+      shortcut: ['g', 't'],
       keywords: 'go-to-get-in-touch',
       section: 'Go to',
       perform: () => router.push('/get-in-touch'),
